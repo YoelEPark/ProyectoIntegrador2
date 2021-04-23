@@ -1,5 +1,6 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&family=Oswald:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 
 /*====== Variables ======*/
@@ -13,6 +14,10 @@
   --base-font-family: 'Roboto', sans-serif
 }
 
+main-header_credit-link {
+					padding: left 100px;
+					padding-right: 0px
+        }
 
 /*====== Basics ======*/
 * {
@@ -270,6 +275,7 @@ hr {
   background-color: #ffffff;
   padding: 20px 0;
   margin-top: 80px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .footer-data {
@@ -491,6 +497,7 @@ textarea.form-input {
   .main-header_credit-link {
     margin-top: 0;
     text-align: right;
+    ;
   }
 
 
