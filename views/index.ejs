@@ -250,6 +250,20 @@
 	</div>
 	<!-- /Más comentados -->
 
+	//preguntar si hay que borrar todo lo de arriba
+	<ul>
+		<% for(let i=0; i<products.length; i++){ %>
+		  <li>
+			<a href="/product/id/<%= product[i].id%>"><%= product[i].title %></a> 
+		  </li>
+		<% } %> 
+
+		<h2>Buscar películas</h2>
+    <form action="/product/search" method="GET">
+      <input type="text" name="search" value="" placeholder="Buscar...">
+      <button type="submit">Buscar</button>
+    </form>
+	  </ul>
 
 	<!-- footer -->
 	<footer class="main-footer">
