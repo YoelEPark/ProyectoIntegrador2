@@ -18,7 +18,10 @@ module.exports = function (sequelize, dataTypes){
         createdAt:{
             type: dataTypes.DATE,
         },
-        usuario_id:{
+        updatedAt:{
+            type: dataTypes.DATE,
+        },
+        usuarioId:{
             type: dataTypes.INTEGER,
         },
         
@@ -28,7 +31,7 @@ module.exports = function (sequelize, dataTypes){
     let config = {
         table: 'productos',
         timestamps: true, // si la tabla no tiene los campos created_at y updated_at.
-        underscored: true,// si los nombres de columnas tienen guion bajo en lugar de camelCase.
+        underscored: false,// si los nombres de columnas tienen guion bajo en lugar de camelCase.
 
     }
 

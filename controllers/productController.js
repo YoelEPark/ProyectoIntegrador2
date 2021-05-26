@@ -18,10 +18,26 @@ const productController = {
             .catch(error =>{
                 console.log(error);
             })
+    },
+    search: function(req, res){
+        let infoABuscar = req.query // obtengo la info de la querystring
+
+        db.Producto.findAll({
+            //SELECT * FROM movies
+            //WHERE title LIKE "%potter%"
+            where: [
+                { title: {[op.like]: '%'+infoABuscar+'%'}}
+            ]})
+        .then( data => {
+            return res.send('index', {movies:data});
+        })
+        .catch( error => {
+            console.log(error);
+        })
+
+    }
         
-    }   
-
-
 }
+   
 
 module.exports = productController;
