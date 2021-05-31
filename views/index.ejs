@@ -1,87 +1,8 @@
- <!DOCTYPE html>
-<html lang="es">
-<!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
-	
-	<title> CusBooks </title>
-			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/css/app.css">
-</head>
+<%- include('./partials/head') %> 
 <body>
 	<!-- Header -->
-	<header class="main-header">
-		<div class="container">
-			<div class="row align-items-center"
-			style="width: 1200px;">
-
-				<div class="col-5 col-md-2">
-					<a href="/" class="main-header_home-link">
-						<img src="/images/logopagina.png"
-						style="height: 100px;
-						width: 180px;
-						padding-left: 0px;
-						padding-right: 100px;"
-						>
-
-					</a>
-				</div>
+	<%- include('./partials/header') %> 
 	
-				<div class="col-7 col-md-6">
-					<form action="/product/search" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-	
-				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
-				</div>
-			</div>
-	
-			<button class="btn-toggle-navbar">
-				<i class="fas fa-bars"></i>
-			</button>
-	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
-					<li><a href="/">Todos los productos</a></li>
-					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
-				</ul>
-	
-				<ul class="right-navbar">
-					<!-- Solo logueado <li><a href="profile.html">
-							Nombre del usuario <i class="fas fa-user"></i>
-						</a>
-					</li>
-					<li>
-						<form action="" method="post">
-							<button class="logout" type="submit">
-								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-							</button>
-						</form>
-					</li> -->
-					<li>
-						<a href="/user/register">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/user/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- /Header -->
 	
 	<!-- Banner -->
 	<div class="banner">
@@ -226,7 +147,7 @@
 						</figure>
 						<article class="product-box_data">
 							<h2>Magnetizado</h2>
-							<p>Unidos como uno para amarse, para honrarse o para arder. Dos años atrás, Louise le Blanc huyó</p>
+							<p>En un libro oscuro e inquietante, Carlos Busqued se adentra en la mente de un peculiar homicida. Cuatro asesinatos idénticos tuvieron en jaque a la policía de Buenos Aires en 1982</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -240,7 +161,7 @@
 						</figure>
 						<article class="product-box_data">
 							<h2>Las Primas</h2>
-							<p>Unidos como uno para amarse, para honrarse o para arder. Dos años atrás, Louise le Blanc huyó</p>
+							<p>Historia de iniciación ambientada en unos equívocos años 40 que despliega el mundo tortuoso de una familia disfuncional de clase media baja de la ciudad de La Plata: una casa sin hombres y llena de mujeres, todas minusválidas, con alguna deformidad física, mental o imaginaria.</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
