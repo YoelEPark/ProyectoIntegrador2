@@ -13,7 +13,7 @@ const productController = {
 
         db.Producto.findByPk(id)
             .then(data =>{
-                return res.render('products', { productos: data });
+                return res.render('products', { Productos: data });
             })
             .catch(error =>{
                 console.log(error);
@@ -22,14 +22,12 @@ const productController = {
     search: function(req, res){
         let infoABuscar = req.query // obtengo la info de la querystring
 
-        db.Producto.findAll({
-            //SELECT * FROM movies
-            //WHERE title LIKE "%potter%"
+        db.Producto.findAll({ 
             where: [
                 { title: {[op.like]: '%'+infoABuscar+'%'}}
             ]})
         .then( data => {
-            return res.send('index', {movies:data});
+            return res.send('index', {Productos :data});
         })
         .catch( error => {
             console.log(error);
