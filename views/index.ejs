@@ -10,6 +10,21 @@
 	</div>
 	<!-- /Banner -->
 
+	<% console.log('En la vista') %>
+    <% console.log(locals.name) %>
+
+    <% if(locals.user){ %>
+      <h2>Hola: <%= locals.user.name %> </h2>
+    <%}%>
+	<% if(locals.user){ %>
+		<form action="/login/logout" method="POST">
+		  <button type="submit">Logout</button>
+		</form>
+	  <%} else {%>
+		<a href="/login">Ingresar</a>
+		<a href="/register">Registrate</a>
+	  <%}%>
+	  
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -19,17 +34,18 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product">
+					<a href="/product/<%= producto.id %>""
 						<figure class="product-box_image">
-							<img src="images/products/programacion1.jpg" alt="La Tía Cosima">
+							<img src=<%=producto.img %> alt="">
 						</figure>
 						<article class="product-box_data">
-							<h2>La tía Cósima</h2>
-							<p>Cósima es una mujer en la plenitud de la vida. Psicóloga de profesión y especializada en el tratamiento del autismo infantil</p>
-							<p>Comentarios: 12</p>
+							<h2><%= producto.nombreProducto %></h2>
+                            <p><a href='/users/<%= producto.usuario.id %> '>Añadido por <%= producto.usuario.nombre + ' ' + producto.usuario.apellido%> </a></p>
 						</article>
 					</a>
 				</section>
+			
+			
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
