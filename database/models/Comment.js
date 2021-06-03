@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes){
     //definir alias
-    let alias = 'Comentario'; //con este alias sequelize va a identificar internamente al archivo de modelo.
+    let alias = 'comment'; //con este alias sequelize va a identificar internamente al archivo de modelo.
 
     // Describir las config de las columnas de la tabla
     let cols = {
@@ -9,7 +9,7 @@ module.exports = function (sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        comentario:{
+        comment:{
             type: dataTypes.TEXT,
         },
         createdAt:{
@@ -18,23 +18,23 @@ module.exports = function (sequelize, dataTypes){
         updatedAt:{
             type: dataTypes.DATE,
         },
-        productoId:{
+        productId:{
             type: dataTypes.STRING,
         },
-        usuarioId:{
+        userId:{
             type: dataTypes.STRING,
         },
        
     }
     
     let config = {
-        table: 'comentarios',
+        table: 'comments',
         timestamps: true, // si la tabla no tiene los campos created_at y updated_at.
         underscored: false,// si los nombres de columnas tienen guion bajo en lugar de camelCase.
 
     }
 
-    const Comentarios = sequelize.define(alias, cols , config);
+    const comment = sequelize.define(alias, cols , config);
 
-    return Comentarios;
+    return comment;
 }

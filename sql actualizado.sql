@@ -2,62 +2,63 @@ CREATE SCHEMA libros;
 
 USE libros;
 
-CREATE TABLE usuarios(
+CREATE TABLE users(
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(45) NOT NULL,
+    username VARCHAR(50) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    birthday VARCHAR(50),
     createdAt DATE,
     updatedAt DATE
 );
 
-CREATE TABLE productos(
+CREATE TABLE products(
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     img VARCHAR(255) NOT NULL,
-    nombreProducto VARCHAR(50) NOT NULL,
+    productName VARCHAR(100) NOT NULL,
+    productDescription VARCHAR(300) NOT NULL,
     createdAt DATE,
     updatedAt DATE,
-    usuarioId INT UNSIGNED NOT NULL,
-	FOREIGN KEY (usuarioId) REFERENCES usuarios (id)
+    userId INT UNSIGNED NOT NULL,
+	FOREIGN KEY (userId) REFERENCES users (id)
     
 );
 
-CREATE TABLE comentarios(
+CREATE TABLE comments(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    comentario TEXT,
+    comment VARCHAR(255),
 	createdAt DATE,
 	updatedAt DATE,
-    productoId INT UNSIGNED NOT NULL,
-    usuarioId INT UNSIGNED NOT NULL,
-	FOREIGN KEY (productoId) REFERENCES productos (id),
-	FOREIGN KEY (usuarioId) REFERENCES usuarios (id)
+    productId INT UNSIGNED NOT NULL,
+    userId INT UNSIGNED NOT NULL,
+	FOREIGN KEY (productId) REFERENCES products (id),
+	FOREIGN KEY (userId) REFERENCES users (id)
     
 );
 
 
-INSERT INTO usuarios
+INSERT INTO users
 VALUES
-(DEFAULT, "Yoel", "Park", "Yoel@gmail.com","juancito123", DEFAULT, DEFAULT),
-(DEFAULT, "Maca", "Armijo", "Macaar@gmail.com","macaa67", DEFAULT, DEFAULT),
-(DEFAULT, "Ale", "Vivone", "alev@gmail.com","program3445", DEFAULT, DEFAULT),
-(DEFAULT, "Lucas", "Lee", "ll@gmail.com","elrobot", DEFAULT, DEFAULT),
-(DEFAULT, "Camila", "Escontrela", "camii@gmail.com", DEFAULT, DEFAULT);
+(DEFAULT, "Yoel Park", "Yoel@gmail.com","juancito123","17-09-2001", DEFAUlt, DEFAULT),
+(DEFAULT, "Maca Armijo", "Macaar@gmail.com","macaa67","10-09-2001", DEFAULT, DEFAULT),
+(DEFAULT, "Ale Vivone", "alev@gmail.com","program3445","18-05-1990", DEFAULT, DEFAULT),
+(DEFAULT, "Lucas Lee", "ll@gmail.com","elrobot","01-07-1996", DEFAULT, DEFAULT),
+(DEFAULT, "Camila Escontrela", "camii@gmail.com", "123","11-6-01", DEFAULT, DEFAULT);
 
-INSERT INTO Productos
+INSERT INTO products
 VALUES
-(DEFAULT, "imagen", "La tia cosima", DEFAULT , DEFAULT ,1),
-(DEFAULT, "imagen", "Los siete mardiso de Evelyn Hugo", DEFAULT, DEFAULT ,2),
-(DEFAULT, "imagen", "Harry potter y la piedra filosofal",DEFAULT, DEFAULT , 3),
-(DEFAULT, "imagen", "Mi camino",DEFAULT, DEFAULT ,4 ),
-(DEFAULT, "imagen", "El duelo", DEFAULT, DEFAULT ,5),
-(DEFAULT, "imagen", "Soltar para ser feliz",DEFAULT, DEFAULT , 1),
-(DEFAULT, "imagen", "Asesino de Brujas", DEFAULT, DEFAULT ,2),
-(DEFAULT, "imagen", "En el limbo", DEFAULT, DEFAULT ,3),
-(DEFAULT, "imagen", "Magnetizado",DEFAULT, DEFAULT ,4),
-(DEFAULT, "imagen", "Las primas", DEFAULT, DEFAULT ,5);
+(DEFAULT, "imagen", "La tia cosima","¿Puede el amor regalar una segunda oportunidad? Cósima es una mujer en la plenitud de la vida",DEFAULT , DEFAULT ,1),
+(DEFAULT, "imagen", "Los siete mardiso de Evelyn Hugo","Evelyn Hugo, el ícono de Hollywood que se ha recluido en su edad madura, decide al fin contar", DEFAULT, DEFAULT ,2),
+(DEFAULT, "imagen", "Harry potter y la piedra filosofal","Firenze, un centauro le explica a Harry que la sangre de unicornio le puede dar más vida",DEFAULT, DEFAULT , 3),
+(DEFAULT, "imagen", "Mi camino","La gente nos demanda más humildad, nos demanda un proyecto en serio",DEFAULT, DEFAULT ,4 ),
+(DEFAULT, "imagen", "El duelo","El Duelo es un territorio oscuro, misterioso, casi inaccesible. Una conmoción", DEFAULT, DEFAULT ,5),
+(DEFAULT, "imagen", "Soltar para ser feliz","Soltar es una palabra que está de moda. Con frecuencia escuchamos frases como: “Hay que soltar el enojo",DEFAULT, DEFAULT , 1),
+(DEFAULT, "imagen", "Asesino de Brujas","Unidos como uno para amarse, para honrarse o para arder. Dos años atrás, Louise le Blanc huyó", DEFAULT, DEFAULT ,2),
+(DEFAULT, "imagen", "En el limbo","on Ágilmente Estanislao Bachrach puso de moda la neurociencia. Con En el limbo -luego de años de investigación-", DEFAULT, DEFAULT ,3),
+(DEFAULT, "imagen", "Magnetizado","En un libro oscuro e inquietante, Carlos Busqued se adentra en la mente de un peculiar homicida. Cuatro asesinatos idénticos tuvieron en jaque a la policía de Buenos Aires en 1982",DEFAULT, DEFAULT ,4),
+(DEFAULT, "imagen", "Las primas","Historia de iniciación ambientada en unos equívocos años 40 que despliega el mundo tortuoso de una familia disfuncional de clase media baja de la ciudad de La Plata: una casa sin hombres y llena de mujeres, todas minusválidas, con alguna deformidad física, mental o imaginaria.", DEFAULT, DEFAULT ,5);
 
-INSERT INTO comentarios
+INSERT INTO comments
 VALUES
 (DEFAULT, "muy buen libro", DEFAULT, DEFAULT,1,1),
 (DEFAULT, "no me gusto", DEFAULT, DEFAULT,1,1),

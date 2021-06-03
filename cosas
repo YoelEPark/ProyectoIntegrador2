@@ -20,3 +20,6 @@
     <p>Rating: <%= producto.nombreProducto %> </p>
     <p>Duración: <%= producto.length %> </p>
 	//cambiar para que quede coherente con la base de datos
+
+
+	<p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.username %> </a></p>

@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes){
     //definir alias
-    let alias = 'Producto'; //con este alias sequelize va a identificar internamente al archivo de modelo.
+    let alias = 'product'; //con este alias sequelize va a identificar internamente al archivo de modelo.
 
     // Describir las config de las columnas de la tabla
     let cols = {
@@ -12,7 +12,10 @@ module.exports = function (sequelize, dataTypes){
         img:{
             type: dataTypes.STRING,
         },
-        nombreProducto:{
+        productName:{
+            type: dataTypes.STRING,
+        },
+        productDescription:{
             type: dataTypes.STRING,
         },
         createdAt:{
@@ -21,7 +24,7 @@ module.exports = function (sequelize, dataTypes){
         updatedAt:{
             type: dataTypes.DATE,
         },
-        usuarioId:{
+        userId:{
             type: dataTypes.INTEGER,
         },
         
@@ -29,13 +32,13 @@ module.exports = function (sequelize, dataTypes){
     }
     
     let config = {
-        table: 'productos',
+        table: 'products',
         timestamps: true, // si la tabla no tiene los campos created_at y updated_at.
         underscored: false,// si los nombres de columnas tienen guion bajo en lugar de camelCase.
 
     }
 
-    const Producto = sequelize.define(alias, cols , config);
+    const product = sequelize.define(alias, cols , config);
 
-    return Producto;
+    return product;
 }

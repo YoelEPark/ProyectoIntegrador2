@@ -1,20 +1,13 @@
 <%- include('./partials/head') %> 
+
 <body>
 	<!-- Header -->
 	<%- include('./partials/header') %> 
-	
-	
-	<!-- Banner -->
-	<div class="banner">
-		<img src="images/bannerlibros.jpg" alt="Banner">
-	</div>
-	<!-- /Banner -->
-
-	<% console.log('En la vista') %>
+		<% console.log('En la vista') %>
     <% console.log(locals.name) %>
 
     <% if(locals.user){ %>
-      <h2>Hola: <%= locals.user.name %> </h2>
+      <h2>Hola: <%= locals.user.username %> </h2>
     <%}%>
 	<% if(locals.user){ %>
 		<form action="/login/logout" method="POST">
@@ -24,6 +17,15 @@
 		<a href="/login">Ingresar</a>
 		<a href="/register">Registrate</a>
 	  <%}%>
+
+	
+	<!-- Banner -->
+	<div class="banner">
+		<img src="images/bannerlibros.jpg" alt="Banner">
+	</div>
+	<!-- /Banner -->
+
+
 	  
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -34,13 +36,12 @@
 			<!-- Show the "ultimos" products -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product/<%= producto.id %>""
+					<a href="/product/<%= product.id %>""
 						<figure class="product-box_image">
-							<img src=<%=producto.img %> alt="">
+							<img src=<%=product.img %> alt="">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= producto.nombreProducto %></h2>
-                            <p><a href='/users/<%= producto.usuario.id %> '>Añadido por <%= producto.usuario.nombre + ' ' + producto.usuario.apellido%> </a></p>
+							<h2><%= product.productName %></h2>
 						</article>
 					</a>
 				</section>
