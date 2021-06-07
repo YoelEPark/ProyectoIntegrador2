@@ -40,5 +40,23 @@ module.exports = function (sequelize, dataTypes){
 
     const product = sequelize.define(alias, cols , config);
 
+    Product.associate = function(models){
+        Product.belongsTo(models.Comment,{
+            as:'comment', // como voy a llamar a la relacion dentro del controlador
+            foreignKey: 'productId',
+
+        }),
+    
+    
+    
+        Product.associate = function(models){
+            Product.belongsTo(models.User,{
+                as:'user', // como voy a llamar a la relacion dentro del controlador
+                foreignKey: 'userId',
+            })
+
+        
     return product;
-}
+
+        }
+    }}

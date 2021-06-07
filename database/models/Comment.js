@@ -36,5 +36,12 @@ module.exports = function (sequelize, dataTypes){
 
     const comment = sequelize.define(alias, cols , config);
 
+    comment.associate = function(models){
+        comment.hasMany(models.Product,{
+            as:'products',
+            foreignKey: 'productId'
+        })
+    }
+
     return comment;
 }

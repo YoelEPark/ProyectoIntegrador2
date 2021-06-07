@@ -23,3 +23,12 @@
 
 
 	<p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.username %> </a></p>
+
+	
+ <p> Comentarios: <%= product.comment %> </p>
+
+ <ul>
+ <% for(let i=0; i<product.user.length; i++){ %>
+ <li><%= product.user[i].first_name + "," + product.user[i].last_name%> </li>
+ <%} %> 
+ </ul>
