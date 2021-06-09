@@ -67,7 +67,12 @@
 		</div>
 	</header>
 	
-	
+	<p> Comentarios: <%= product.comment %> </p>
+	<ul>
+		<% for(let i=0; i<product.user.length; i++){ %>
+		<li><%= product.user[i].first_name + "," + product.user[i].last_name%> </li>
+		<%} %> 
+		</ul>
     
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">

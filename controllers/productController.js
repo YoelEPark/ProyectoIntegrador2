@@ -17,6 +17,7 @@ const productController = {
                 {association: 'user'}
             ]
         })
+        //return res.send(data)
             .then(data =>{
                 return res.render('products', { Productos: data });
             })

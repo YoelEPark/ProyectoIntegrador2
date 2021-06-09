@@ -3,8 +3,9 @@ const db = require ('../database/models'); //requerimos la conexion a la base de
 const mainController = {
     index: function(req, res){
         
-        db.product.findAll()
+        db.Product.findAll()
         .then( data => {
+            return res.send(data)
             return res.render ('index', { product:data })
            
         })
@@ -16,4 +17,4 @@ const mainController = {
 }
 
 
-module.exports = mainController;
+module.exports = mainController

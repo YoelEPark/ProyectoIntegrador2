@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes){
     //definir alias
-    let alias = 'comment'; //con este alias sequelize va a identificar internamente al archivo de modelo.
+    let alias = 'Comment'; //con este alias sequelize va a identificar internamente al archivo de modelo.
 
     // Describir las config de las columnas de la tabla
     let cols = {
@@ -34,14 +34,20 @@ module.exports = function (sequelize, dataTypes){
 
     }
 
-    const comment = sequelize.define(alias, cols , config);
-
-    comment.associate = function(models){
-        comment.hasMany(models.Product,{
-            as:'products',
+    const Comment = sequelize.define(alias, cols , config);
+    
+    Comment.associate = function(models){
+     Comment.belongsTo(models.Product,{
+            as:'product',
             foreignKey: 'productId'
         })
+        
+        Comment.belongsTo(models.User, {
+            as:"user",
+            foreignKey:"userId"
+        })
+    
     }
 
-    return comment;
+    return Comment;
 }
