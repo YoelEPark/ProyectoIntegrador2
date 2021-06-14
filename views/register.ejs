@@ -8,19 +8,71 @@
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+			<% if(locals.errors){ %>
+				<h2 class="products-t" style="color:red"><%=locals.errors.message  %> </h2>			
+			<% } %> 
 			<!-- Show the "ultimos" products -->
-		
-			<h2 class="col-12"> 
-				<input class="controls" type="text" name="name"  placeholder="Ingrese su Nombre">
-				<input class="controls" type="text" name="username"  placeholder="Ingrese su Nombre de Usuario">
-				<input class="controls" type="email" name="email"  placeholder="Ingrese su Correo">
-				<input class="controls" type="password" name="password"  placeholder="Ingrese su Contraseña">
-				<input class="controls" type="password" name="retypepassword"  placeholder="Ingrese su Contraseña">
-				<input class="controls" type="text" name="birthdate"  placeholder="Ingrese fecha de nacimiento (00-00-00)">
-				<a href="/user">Registrar<i class="search-form_button"></i></a> 
-			</h2>
-
-			<form action="/"></form>
+							<form class="formularioRegistro" action="/user/register" method="POST" enctype="multipart/form-data"> 
+								<!-- Username -->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+									</div>
+									<input name="username" class="form-control" placeholder="Username" type="text" value="">
+								</div> 
+								<!-- Email -->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+									</div>
+									<input name="email" class="form-control" placeholder="Email address" type="email" value="">
+								</div> 
+								<!-- Username Photo-->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+									</div>
+									<input name="userimg" class="form-control" placeholder="UsernamePhoto" type="file" value="" accept=".jpg, .png, .jpeg,">
+								</div> 
+								<!-- Phone number -->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+									</div>
+				
+									<input name="phoneNumber" class="form-control" placeholder="Phone number" type="number" value="">
+								</div> 
+								<!-- Date of birth -->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-building"></i> </span>
+									</div>
+									<input name="dateOfBirth" class="form-control" placeholder="Date of birth" type="date" value="">
+								</div> 
+								<!-- Password-->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+									</div>
+									<input name="password" class="form-control" placeholder="Create password" type="password" value="">
+								</div> 
+								<!-- Password-->
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+									</div>
+									<input name="checkpassword" class="form-control" placeholder="Repeat password" type="password" value="">
+								</div> 
+							<!-- Boton Create account -->                               
+								<button type="submit" class="btn login_btn" >Create account</button>
+								</div> 
+								<!-- form-group// -->      
+								<p class="text-center">Ya tenes una cuenta? <a href="/user/login">Log In</a> </p>                                                                 
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 	<!-- footer -->

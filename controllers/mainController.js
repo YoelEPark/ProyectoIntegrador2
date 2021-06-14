@@ -5,7 +5,6 @@ const mainController = {
         
         db.Product.findAll()
         .then( data => {
-            return res.send(data)
             return res.render ('index', { product:data })
            
         })
