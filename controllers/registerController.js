@@ -5,6 +5,8 @@ const users = db.User;
 
 let registerController = {
     index: function(req, res){
+        if(req.session.user != undefined)
+            return res.redirect('/')
         //Mostrar el formulario de registro
         return res.render('register');
     },
@@ -15,8 +17,8 @@ let registerController = {
            lastname: req.body.lastname,
            email: req.body.email,
            password: bcrypt.hashSync(req.body.password, 10), 
-           
-       }
+           userimg: req.file.filename
+        }
        
        users.create(user)
        .then( user => {

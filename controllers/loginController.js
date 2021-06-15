@@ -12,7 +12,7 @@ let loginController = {
 
     login: function(req, res){
         // Buscar el usuario que se quiere loguear.
-        db.user.findOne({
+        db.User.findOne({
             where: [{email: req.body.email}]
         })
         .then( user => {

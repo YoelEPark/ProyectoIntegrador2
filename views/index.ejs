@@ -3,22 +3,7 @@
 <body>
 	<!-- Header -->
 	<%- include('./partials/header') %> 
-		<% console.log('En la vista') %>
-    <% console.log(locals.name) %>
 
-    <% if(locals.user){ %>
-      <h2>Hola: <%= locals.user.username %> </h2>
-    <%}%>
-	<% if(locals.user){ %>
-		<form action="/login/logout" method="POST">
-		  <button type="submit">Logout</button>
-		</form>
-	  <%} else {%>
-		<a href="/login">Ingresar</a>
-		<a href="/register">Registrate</a>
-	  <%}%>
-
-	
 	<!-- Banner -->
 	<div class="banner">
 		<img src="images/bannerlibros.jpg" alt="Banner">

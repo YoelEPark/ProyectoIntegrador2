@@ -12,10 +12,21 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<input class="controls" type="text" name="nombrelibro" id="nombres" placeholder="Ingrese el libro que desee">
-			<a href="/">Agregar producto</i></a> 
-		</h2>
-			</h2>
+			<div class="container">
+		<div class="row justify-content-md-center">
+			<form class="register-form col-6" action="/product/add" method="POST" enctype="multipart/form-data">
+				<label for="">Nombre:</label>
+				<input type="text" name="bookName" placeholder="">
+				<label for="">Genero:</label>
+				<input type="text" name="bookGenre" placeholder="">
+				<label for="">Descripción:</label>
+				<input type="text" name="bookDescription" placeholder="">
+				<label for="">Imagen:</label>
+				<input type="file" name="bookImage" placeholder="">
+				<button type="submit" class="btn-outline-dark">Enviar</button>
+			</form>
+		</div>
+	</div>
 
 
 	<!-- footer -->
