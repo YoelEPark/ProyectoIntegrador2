@@ -1,4 +1,9 @@
 const db = require('../database/models'); //Requerimos la conexión a la base de datos y todos los modelos.
+let products = require('../data/librosData');
+let users = require('../data/usersData')
+
+const op = db.sequelize.op
+
 
 
 const productController = {

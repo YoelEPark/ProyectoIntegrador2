@@ -5,74 +5,38 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-2">
 				<h2 class="products-title">Registrate</h2>
+				
 			</div>
 			<% if(locals.errors){ %>
-				<h2 class="products-t" style="color:red"><%=locals.errors.message  %> </h2>			
-			<% } %> 
+					<h2 style="color:red">
+						<%= locals.errors.message %>
+					</h2>
+					<% } %>
+		</div>
+	</div>
 			<!-- Show the "ultimos" products -->
-							<form class="formularioRegistro" action="/user/register" method="POST" enctype="multipart/form-data"> 
-								<!-- Username -->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-									</div>
-									<input name="username" class="form-control" placeholder="Username" type="text" value="">
-								</div> 
-								<!-- Email -->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-									</div>
-									<input name="email" class="form-control" placeholder="Email address" type="email" value="">
-								</div> 
-								<!-- Username Photo-->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-									</div>
-									<input name="userimg" class="form-control" placeholder="UsernamePhoto" type="file" value="" accept=".jpg, .png, .jpeg,">
-								</div> 
-								<!-- Phone number -->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-									</div>
-				
-									<input name="phoneNumber" class="form-control" placeholder="Phone number" type="number" value="">
-								</div> 
-								<!-- Date of birth -->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-building"></i> </span>
-									</div>
-									<input name="dateOfBirth" class="form-control" placeholder="Date of birth" type="date" value="">
-								</div> 
-								<!-- Password-->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-									</div>
-									<input name="password" class="form-control" placeholder="Create password" type="password" value="">
-								</div> 
-								<!-- Password-->
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-									</div>
-									<input name="checkpassword" class="form-control" placeholder="Repeat password" type="password" value="">
-								</div> 
-							<!-- Boton Create account -->                               
-								<button type="submit" class="btn login_btn" >Create account</button>
-								</div> 
-								<!-- form-group// -->      
-								<p class="text-center">Ya tenes una cuenta? <a href="/user/login">Log In</a> </p>                                                                 
-							</form>
-						</div>
-					</div>
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<form class="register-form col-6" action="/user/register" method="POST" enctype="multipart/form-data"> 
+						<label for="">Nombre:</label>
+						<input type="text" name="name" placeholder="">
+						<label for="">Apellido:</label>
+						<input type="text" name="lastname" placeholder="">
+						<label for="">Fecha de Nacimiento:</label>
+						<input type="date" name="birthday" placeholder="">
+						<label for="">Email</label>
+						<input type="email" name="email" placeholder="">
+						<label for="">Foto de perfil:</label>
+						<input type="file" name="userImage" placeholder="">
+						<label for="Contraseña:">Contraseña:</label>
+						<input type="password" name="password" placeholder="">
+						<button type="submit" class="btn-outline-dark">Enviar</button>
+					</form>
 				</div>
 			</div>
+		
 
 
 	<!-- footer -->

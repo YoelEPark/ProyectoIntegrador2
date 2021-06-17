@@ -11,21 +11,56 @@ let registerController = {
         return res.render('register');
     },
     store: function(req, res){ 
-        // Guardar un usuario en la db
-        let user = {
-           name : req.body.name,
-           lastname: req.body.lastname,
-           email: req.body.email,
-           password: bcrypt.hashSync(req.body.password, 10), 
-           userimg: req.file.filename
+        let creada = {}
+        let errors = {}
+
+        if (req.body.email == ""){
+            errors.message = 'El mail es obligatorio'
+            res.locals.errors = errors;
+            return res.render('register', {title: 'Registrate'})
+        }
+        else if (req.body.password == ""){
+            errors.message = "La contrase;a es obligatoria"
+            res.locals.errors = errors;
+            return res.render('register', {title: 'Registrate'})
+        }
+        else{
+            db.User.findOne({
+                where: [{
+                    email: req.body.email
+                }]
+            })
+                .then(user =>{
+                    if(user !=null){
+                        errors.message = "El mail ya esta registrado. Por favor elija otro"
+                        res.locals.errors = errors;
+                        return res.render('register', {title: 'Registrate'})
+                    }else {
+                        
+                        let user = {
+                            name: req.body.name,
+                            lastname: req.body.lastname,
+                            birthday: req.body.email,
+                            email: req.body.email,
+                            password: bcrypt.hashSync(req.body.password, 10),
+                            img: req.file.filename
+                        }
+                        creada.message = 'Bienvenido! Tu cuenta fue creada con exito.'
+                        res.locas.creada= creada
+
+                        users.create(user)
+                            .then(user => {
+                                return res.redirect('/user/login')
+                            })
+                            .catch(e => {
+                                console.log(e)
+                            });
+                    }
+                })
+                // guardar un usuario en la db
+                .catch(error => {console.log(error)})
         }
        
-       users.create(user)
-       .then( user => {
-        return res.redirect('/login')
-       })
-       .catch(e => {console.log(e)});
-
     }
 }
 

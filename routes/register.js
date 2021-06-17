@@ -18,6 +18,6 @@ var storage = multer.diskStorage({
 
 
 router.get('/', registerController.index);
-router.post('/',upload.single('userimg') ,registerController.store);
+router.post('/',upload.single('userImage') ,registerController.store);
 
 module.exports = router;
