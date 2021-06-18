@@ -2,7 +2,7 @@ const db = require('../database/models'); //Requerimos la conexión a la base de
 let products = require('../data/librosData');
 let users = require('../data/usersData')
 
-const op = db.sequelize.op
+const op = db.Sequelize.Op;
 
 
 
@@ -30,21 +30,79 @@ const productController = {
                 console.log(error);
             })
     },
-    search: function(req, res){
-        let infoABuscar = req.query // obtengo la info de la querystring
+    search: (req, res) => {
+        let QuerySearch = req.query.search;
+        let paramSearch = req.params.busqueda;
 
-        db.Producto.findAll({ 
-            where: [
-                { title: {[op.like]: '%'+infoABuscar+'%'}}
-            ]})
-        .then( data => {
-            return res.send('index', {Productos :data});
-        })
-        .catch( error => {
-            console.log(error);
-        })
+        // Tomas si la palabra clave viene de req.query o req.params
+        if (QuerySearch == undefined || QuerySearch == '') {
+            var busqueda = paramSearch
+        } else {
+            var busqueda = QuerySearch
+        }
 
-    }
+
+        //Llamo a las bases de datos -- La de 'producto' que me traiga en funcion de la palabra clave
+        
+        let producto = db.Product.findAll(
+
+            //Busqueda por nombre i DESCRIPCION >>>>>>>>>>
+            {
+                 where: [{
+                    [op.or]: [
+                        {productName : {[op.like]: `%${busqueda}%`}},
+                        {productDescription: {[op.like]: `%${busqueda}%`}}
+                    ] 
+                    }
+                    
+                ],
+                 
+            } 
+        )
+
+     Promise.all([producto ])
+
+            .then(([producto]) => {
+
+                return res.render('search-results', {
+                    producto,
+                    busqueda,
+                })
+            }) 
+    },
+
+    // El metodo detalle lleva a la pagina de producto
+    detalle: (req, res) => {
+        let id = req.params.id;
+
+        let producto = db.Producto.findAll(
+            {  
+                where: [{
+                id: id
+            }
+        ],
+                include: [
+                    {association:"userAdd"}
+                 ]
+            }
+        )
+
+        // Si se acaba de agregar un producto o editar, manda un valor (mensajeBack) a la vista para renderizar un mensaje
+        let mensaje = req.query.mensaje;
+
+        Promise.all([producto])
+
+            .then(([producto]) => {
+             //return res.send (producto)
+        
+                return res.render('product', {
+                    producto,
+                    mensaje
+                })
+            })
+
+
+    },
         
 }
    

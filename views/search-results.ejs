@@ -1,25 +1,61 @@
-<%- include('./partials/head') %> 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>
+		<%=busqueda%> | Busqueda en Catalogo</title>
+
+	<link rel="stylesheet" href="/stylesheets/css/search.css">
+</head>
+
 <body>
-	<!-- Header -->
-	<%- include('./partials/header') %> 
-	<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+
+	<section class="maincontent">
+
+		<div class="resultadoyordenar">
+			<h2>Buscar:<span class="busqueda"><%=busqueda%></span></h2>
+
+
+		</div>
+
+		<div class="todoelsearch">
+
+
+			<div class="resultados">
+
+
+
+
+				<% producto.forEach(element => {%>
+				<% if (producto.length > 0 ){ %>
+
+				<a href="/productos/detalle/<%=element.id%>?id=<%=element.id%>">
+					<div class="product">
+						<div class="fotos"> <img src="/images/products/<%=element.img%>">
+						</div>
+						<h3>
+							<%=element.productName%>
+						</h3>
+						<h6>
+
+						</h6>
+
+
+					</div>
+				</a>
+
+
+				<% } else { %>
+				<div class="sinResultados">
+					<h5>No se han encontrado productos.</h5>
+					<h5>Probá con otro termino de busqueda.</h5>
+				</div>
+				<% }} )%>
+
 			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
+	</section>
 
-
-	<!-- footer -->
-	<%- include('./partials/footer') %> 
-	<!-- /footer -->
 </body>
 
 </html>

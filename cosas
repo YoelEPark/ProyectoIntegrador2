@@ -87,3 +87,87 @@
         })
 
     }
+    // <% for(let i=0; i<movies.lenght; i++){%>
+    <li>
+    <a href= "/movie/id<%=movies[i].id"><%= movies[i]. title %></a>
+    </li>
+    <%} %>
+
+    //<div class="container products-wrapper">
+				<div class="row">
+				  <div class="col-12">
+					<h2 class="products-title">Resultados de <em>"<%= result %>"</em></h2>
+				  </div>
+		  
+				  <% if (respuesta != '') { %>
+					<h2 style='color:red'><%= respuesta %> '<%= result %>'</h2>
+				  <% } %>
+		  
+				 
+				  <% if (respuesta == "") { %>
+				   <% for (const product of products) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+					  <section class="product-box">
+						<a href="/product/detail/<%= product.id %> ">
+						  <figure class="product-box_image">
+							<img src= "/images/products/<%=product.wine_image %>" alt="">
+						  </figure>
+						  <article class="product-box_data">
+							<h2><%= product.wine_name %></h2>
+							<p><%= product.wine_type %> - <%= product.wine_variety %></p>
+							<p><%= product.wine_year %> </p>
+							<p><a href='/users/<%= product.user.id %> '>Añadido por <%= product.user.name + ' ' + product.user.lastname%> </a></p>
+						  </article>
+						</a> 
+					  </section>
+					</div>
+				  <%}%>
+				  <% } %>
+				  
+				</div>
+			  </div>
+
+        <%- include('./partials/head') %> 
+<body>
+	<!-- Header -->
+	<%- include('./partials/header') %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
+			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
+			////////////////
+			</h2>
+
+			
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>
+
+</html>
+
+
+search: function(req, res){
+        let infoABuscar = req.query.search;  // obtengo la info de la querystring
+       
+        db.Producto.findAll({ 
+            where: [
+                { title: {[op.like]: '%'+infoABuscar+'%'}}
+            ]})
+        .then( data => {
+            return res.send('header', {Productos :data});
+        })
+        .catch( error => {
+            console.log(error);
+        })
+
+    }
