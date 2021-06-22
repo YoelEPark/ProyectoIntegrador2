@@ -1,0 +1,55 @@
+<%-include('./partials/head')  %> 
+<body>
+    <%- include('./partials/header') %> 
+    <!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-t">Edit product</h2>
+			</div>
+	<!-- Formulario -->
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center"></div>
+					<div class="d-flex justify-content-center form_container">
+						<form class="formularioProducto" action="/product/editproduct/<%=editProduct.id%> " method="POST" enctype="multipart/form-data">
+							<!-- Product name -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+								</div>
+								<input name="productName" class="form-control" placeholder="Edit product name" type="text" value="<%=editProduct.productName  %>">
+							</div> 
+							<!-- Product image -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+								</div>
+								<input name="img" class="form-control" placeholder="Edit product image" type="file" value="" accept=".jpg, .png, .jpeg,">
+							</div>      
+							<div class="form-group input-group">
+								
+							<!--Description-->	
+								<div class="input-group-prepend">
+									<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+								</div>
+								<input name="description" class="form-control" placeholder="Edit description" type="text" value="<%=editProduct.description  %>">
+							</div>    
+							<!-- Boton Add Product -->                                      
+							<div class="d-flex justify-content-center mt-3 login_container">
+								<button type="submit" class="btn login_btn" >Edit product</button>
+							</div>                                                       
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- footer -->
+<%- include('./partials/footer') %>
+<!-- /footer -->
+
+</body>
+</html>

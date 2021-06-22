@@ -19,7 +19,19 @@ var storage = multer.diskStorage({
 
 
 router.get('/', productController.product);
+
 router.get ('/add',productController.add);
+router.post('/add', upload.single('img'), productController.store);
+router.post('/destroy/:id', productController.destroy);
+
+router.get('/id/:id', productController.detalle);
+router.post('/id/:id/comment',productController.addComment);
+router.post('/destroyComment/:id',productController.destroyComment)
+
+router.get('/editproduct/:id', productController.editProduct);
+router.post('/editproduct/:id', upload.single('img'), productController.updateProduct);
+
+
 //router.post('add', upload.single(bookImage), productController.store)
 router.get('/search/:busqueda', productController.search)
 /* GET home page. */

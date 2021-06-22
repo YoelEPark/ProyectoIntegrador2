@@ -38,8 +38,7 @@ let registerController = {
                     }else {
                         
                         let user = {
-                            name: req.body.name,
-                            lastname: req.body.lastname,
+                            username: req.body.name,
                             birthday: req.body.email,
                             email: req.body.email,
                             password: bcrypt.hashSync(req.body.password, 10),
