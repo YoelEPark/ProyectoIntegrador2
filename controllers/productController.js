@@ -208,44 +208,44 @@ const productController = {
     },
     
     search: (req, res) => {
-        let QuerySearch = req.query.search;
-        let paramSearch = req.params.busqueda;
+      let infoABuscar = req.query.search; // obtengo la info de la querystring
 
-        // Tomas si la palabra clave viene de req.query o req.params
-        if (QuerySearch == undefined || QuerySearch == '') {
-            var busqueda = paramSearch
-        } else {
-            var busqueda = QuerySearch
-        }
-
-
-        //Llamo a las bases de datos -- La de 'producto' que me traiga en funcion de la palabra clave
-        
-        let producto = db.Product.findAll(
-
-            //Busqueda por nombre i DESCRIPCION >>>>>>>>>>
-            {
-                 where: [{
-                    [op.or]: [
-                        {productName : {[op.like]: `%${busqueda}%`}},
-                        {productDescription: {[op.like]: `%${busqueda}%`}}
-                    ] 
+      db.Product.findAll({
+         
+            include:[{
+              association: 'user'
+          }],
+          where: {
+            [op.or]: [{
+                    productName: {
+                        [op.like]: '%' + infoABuscar + '%'
                     }
-                    
-                ],
-                 
-            } 
-        )
+                }]
+        },
 
-     Promise.all([producto ])
+    })
+    .then(data => {
+        console.log(data);
+        if (data == null || data == [] || data.length == 0) {
+            console.log('No hay resultados');
+            return res.render('search-results', {
+                title: 'Resultados',
+                products: data,
+                result: infoABuscar,
+                respuesta: 'No se encontraron resultados para '
+            });
 
-            .then(([producto]) => {
-
-                return res.render('search-results', {
-                    producto,
-                    busqueda,
-                })
-            }) 
+        }
+        return res.render('search-results', {
+            title: 'Resultados',
+            products: data,
+            result: infoABuscar,
+            respuesta: ''
+        });
+    })
+    .catch(error => {
+        console.log(error);
+    })
     },
 
    

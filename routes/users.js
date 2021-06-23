@@ -3,6 +3,7 @@ var router = express.Router();
 const userController = require('../controllers/userController')
 let multer = require('multer');
 let path = require('path');
+const { user } = require('../controllers/userController');
 
 //cofiguramos multer
 var storage = multer.diskStorage({
@@ -17,12 +18,12 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage })
 
 /* GET users listing. */
-router.get('/', userController.user);
+router.get('/:id', userController.user);
+router.post('/edit/:id',userController.edit);
+//router.post('/edit', upload.single(userImage),userController.update)
+router.post('/logout', userController.destroy);
 
-router.get('/edit', userController.edit);
 
-router.get('/login', userController.login);
 
-router.get('/register', userController.register);   
 
 module.exports = router;
