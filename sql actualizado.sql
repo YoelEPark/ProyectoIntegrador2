@@ -47,16 +47,17 @@ VALUES
 
 INSERT INTO products
 VALUES
-(DEFAULT, "imagen", "La tia cosima","¿Puede el amor regalar una segunda oportunidad? Cósima es una mujer en la plenitud de la vida",DEFAULT , DEFAULT ,1),
-(DEFAULT, "imagen", "Los siete mardiso de Evelyn Hugo","Evelyn Hugo, el ícono de Hollywood que se ha recluido en su edad madura, decide al fin contar", DEFAULT, DEFAULT ,2),
-(DEFAULT, "imagen", "Harry potter y la piedra filosofal","Firenze, un centauro le explica a Harry que la sangre de unicornio le puede dar más vida",DEFAULT, DEFAULT , 3),
-(DEFAULT, "imagen", "Mi camino","La gente nos demanda más humildad, nos demanda un proyecto en serio",DEFAULT, DEFAULT ,4 ),
-(DEFAULT, "imagen", "El duelo","El Duelo es un territorio oscuro, misterioso, casi inaccesible. Una conmoción", DEFAULT, DEFAULT ,5),
-(DEFAULT, "imagen", "Soltar para ser feliz","Soltar es una palabra que está de moda. Con frecuencia escuchamos frases como: “Hay que soltar el enojo",DEFAULT, DEFAULT , 1),
-(DEFAULT, "imagen", "Asesino de Brujas","Unidos como uno para amarse, para honrarse o para arder. Dos años atrás, Louise le Blanc huyó", DEFAULT, DEFAULT ,2),
-(DEFAULT, "imagen", "En el limbo","on Ágilmente Estanislao Bachrach puso de moda la neurociencia. Con En el limbo -luego de años de investigación-", DEFAULT, DEFAULT ,3),
-(DEFAULT, "imagen", "Magnetizado","En un libro oscuro e inquietante, Carlos Busqued se adentra en la mente de un peculiar homicida. Cuatro asesinatos idénticos tuvieron en jaque a la policía de Buenos Aires en 1982",DEFAULT, DEFAULT ,4),
-(DEFAULT, "imagen", "Las primas","Historia de iniciación ambientada en unos equívocos años 40 que despliega el mundo tortuoso de una familia disfuncional de clase media baja de la ciudad de La Plata: una casa sin hombres y llena de mujeres, todas minusválidas, con alguna deformidad física, mental o imaginaria.", DEFAULT, DEFAULT ,5);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (1,'programacion1.jpg','La tia cosima','¿Puede el amor regalar una segunda oportunidad? Cósima es una mujer en la plenitud de la vida',NULL,NULL,1);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (2,'programacion2.jpg','Los siete mardiso de Evelyn Hugo','Evelyn Hugo, el ícono de Hollywood que se ha recluido en su edad madura, decide al fin contar',NULL,NULL,2);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (3,'programacion3.jpg','Harry potter y la piedra filosofal','Firenze, un centauro le explica a Harry que la sangre de unicornio le puede dar más vida',NULL,NULL,3);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (4,'programacion4.jpg','Mi camino','La gente nos demanda más humildad, nos demanda un proyecto en serio',NULL,NULL,4);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (5,'programacion5.jpg','El duelo','El Duelo es un territorio oscuro, misterioso, casi inaccesible. Una conmoción',NULL,NULL,5);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (6,'programacion6.jpg','Soltar para ser feliz','Soltar es una palabra que está de moda. Con frecuencia escuchamos frases como: “Hay que soltar el enojo',NULL,NULL,1);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (7,'programacion7.jpg','Asesino de Brujas','Unidos como uno para amarse, para honrarse o para arder. Dos años atrás, Louise le Blanc huyó',NULL,NULL,2);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (8,'programacion8.jpg','En el limbo','on Ágilmente Estanislao Bachrach puso de moda la neurociencia. Con En el limbo -luego de años de investigación-',NULL,NULL,3);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (9,'programacion9.jpg','Magnetizado','En un libro oscuro e inquietante, Carlos Busqued se adentra en la mente de un peculiar homicida. Cuatro asesinatos idénticos tuvieron en jaque a la policía de Buenos Aires en 1982',NULL,NULL,4);
+INSERT INTO `` (`id`,`img`,`productName`,`productDescription`,`createdAt`,`updatedAt`,`userId`) VALUES (10,'programacion10.jpg','Las primas','Historia de iniciación ambientada en unos equívocos años 40 que despliega el mundo tortuoso de una familia disfuncional de clase media baja de la ciudad de La Plata: una casa sin hombres y llena de mujeres, todas minusválidas, con alguna deformidad física, mental o imaginaria.',NULL,NULL,5);
+
 
 INSERT INTO comments
 VALUES
