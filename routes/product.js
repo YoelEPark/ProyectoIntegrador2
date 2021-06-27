@@ -31,7 +31,8 @@ router.post('/destroyComment/:id',productController.destroyComment)
 router.get('/editproduct/:id', productController.editProduct);
 router.post('/editproduct/:id', upload.single('img'), productController.updateProduct);
 
-router.get('/results', productController.search);
+// router.get('/results', productController.search);
+router.get('/search/:busqueda/:condicion/', productController.search);
 
 
 module.exports = router;

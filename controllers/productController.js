@@ -207,7 +207,18 @@ const productController = {
         })
     },
     
+
+
     search: (req, res) => {
+         let QuerySearch = req.query.search;
+        let paramSearch = req.params.busqueda;
+
+        // Tomas si la palabra clave viene de req.query o req.params
+        if (QuerySearch == undefined || QuerySearch == '') {
+            var busqueda = paramSearch
+        } else {
+            var busqueda = QuerySearch
+        }
       let infoABuscar = req.query.search; // obtengo la info de la querystring
 
       db.Product.findAll({
