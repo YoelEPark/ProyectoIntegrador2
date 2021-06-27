@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
 /* GET users listing. */
 router.get('/:id', userController.user);
 router.post('/edit/:id',userController.edit);
-//router.post('/edit', upload.single(userImage),userController.update)
+router.post('/edit', upload.single('userImg'),userController.update)
 router.post('/logout', userController.destroy);
 
 

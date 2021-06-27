@@ -31,10 +31,7 @@ router.post('/destroyComment/:id',productController.destroyComment)
 router.get('/editproduct/:id', productController.editProduct);
 router.post('/editproduct/:id', upload.single('img'), productController.updateProduct);
 
+router.get('/results', productController.search);
 
-//router.post('add', upload.single(bookImage), productController.store)
-router.get('/search/:busqueda', productController.search)
-/* GET home page. */
-//router.get('/id/:id', productController.show);
 
 module.exports = router;

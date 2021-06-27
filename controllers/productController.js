@@ -9,7 +9,7 @@ const op = db.Sequelize.Op;
 
 const productController = {
     product: function(req, res){
-        Product.findAll()
+        db.Product.findAll()
         .then(data =>{
             return res.render('product', {title: 'product', products: data})
         })
@@ -21,7 +21,7 @@ const productController = {
         if (req.session.user == undefined){
             return res.redirect('/users/login')
         }else {
-            Product.findAll()
+            db.Product.findAll()
             .then(data =>{
                 return res.render('product-add', {title: "agregar productos", products: data})
             })
@@ -102,7 +102,7 @@ const productController = {
 
             let data = req.body;
 
-            //actualixar producto
+            //actualizar producto
 
             let productToUpdate = {
                 id: req.params.id,

@@ -19,6 +19,9 @@ const userController = {
             res.render('profile',{title: 'perfil', usuario: user,})
 
         })
+        .catch(error =>{
+            console.log(error);
+        })
         
     },
     edit: (req, res) => {
