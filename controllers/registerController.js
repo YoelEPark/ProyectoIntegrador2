@@ -38,18 +38,18 @@ let registerController = {
                     }else {
                         
                         let user = {
-                            username: req.body.name,
+                            username: req.body.username,
                             birthday: req.body.email,
                             email: req.body.email,
                             password: bcrypt.hashSync(req.body.password, 10),
                             img: req.file.filename
                         }
                         creada.message = 'Bienvenido! Tu cuenta fue creada con exito.'
-                        res.locas.creada= creada
+                        res.locals.creada= creada
 
                         users.create(user)
                             .then(user => {
-                                return res.redirect('/user/login')
+                                return res.redirect('/login')
                             })
                             .catch(e => {
                                 console.log(e)

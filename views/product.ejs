@@ -3,67 +3,45 @@
 	<!-- Header -->
 	
 	<!-- /Header -->
-	<%- include('./partials/header') %> 
-	
+	<% if( user.log ){ %>
+		<%- include('./partials/headerLogueado') %>
+		<%} else { %>
+		<%- include('./partials/header') %>
+		<% } %>
 	
     
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= product.productName %> </h2> 
 			<p class="product-detail-description">
-				<a href="/product/add">Editar</a>
-			</p>
+				<% if(user.id == product.user.id){ %> 
+					<p class="product-detail-description">
+						<a href="/product/editproduct/<%= product.id%>">Editar</a>
+					</p>
+				<% } %> 
+			
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/programacion1.jpg" alt="" class="product-detail-img">
+					<img src="/images/products/<%= product.img %> " alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Cósima es una mujer en la plenitud de la vida. Psicóloga de profesión y especializada en el tratamiento del autismo infantil, posee una fundación de enorme prestigio, donde se respira un ambiente cuidado y buen humor.</p>
+						<%= product.productDescription %> </p>
 				</article>
+				
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+						<% product.comments.forEach(element => { %>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="/images/products/<%= product.img %> " alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/user">Lucas Lee: </a> </strong>
-								 Me parecio un libro interesante y muy bueno para leer.</p>
+								<strong> <a href="/user"><%= element.user.username %> : </a> </strong>
+								<%= element.comment %> </p>
 							</div>
 						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/user">Yoel Park: </a> </strong>
-									No me gusto tanto, pero lo recomiendo!.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/user">Camila Escontrela: </a> </strong>
-									Me encanto! Uno de los mejores libros que lei.
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/user">Ale vivone: </a> </strong>
-									Es una obra maestra!.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/user">Maca Armijo: </a> </strong>
-									Increible libro, todos deberian leerlo!</p>
-							</div>
-						</article>
+						<% }) %>
+					
 
 					</section>
 					<form class="form" action="" method="POST">

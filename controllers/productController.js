@@ -9,7 +9,7 @@ const op = db.Sequelize.Op;
 
 const productController = {
     product: function(req, res){
-        db.Product.findAll()
+        db.Product.findByPk(req.params.id)
         .then(data =>{
             return res.render('product', {title: 'product', products: data})
         })
@@ -19,7 +19,7 @@ const productController = {
     },
     add: function(req, res){
         if (req.session.user == undefined){
-            return res.redirect('/users/login')
+            return res.redirect('/login')
         }else {
             db.Product.findAll()
             .then(data =>{
@@ -33,7 +33,8 @@ const productController = {
     store: function(req, res){ //guardar libros
 
         let errors = {}
-        
+        let data = req.body
+
         if (req.body.productName == ""){
             errors.message = "El nombre es obligatorio";
             res.locals.errors = errors;
@@ -47,14 +48,14 @@ const productController = {
         }else {
             let products = {
                 userId: req.session.user.id,
-                productName: data.productName,
+                productName: data.bookName,
                 img: req.file.filename,
-                productDescription: data.productDescription,
+                productDescription: data.bookDescription,
             };
             
             db.Product.create(products)
             .then((productoCreado)=>{
-                return res.redirect(`/users/${req.session.user.id}`);
+                return res.redirect(`/`);
             })
             .catch(error =>{
                 console.log(error);
@@ -89,7 +90,7 @@ const productController = {
         db.Product.findByPk(productId)
         .then(function(product){
             if(product.userId != req.session.user.id){
-                return res.redirect(`/users/${req.session.user.id}`)
+                return res.redirect(`/`)
             }
             return res.render('product-edit', {editProduct: product})
         })

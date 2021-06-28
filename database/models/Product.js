@@ -47,7 +47,7 @@ module.exports = function (sequelize, dataTypes){
 }),
     
     
-        // Product.associate = function(models){
+         
             Product.belongsTo(models.User,{
                 as:"user", // como voy a llamar a la relacion dentro del controlador
                 foreignKey: "userId",

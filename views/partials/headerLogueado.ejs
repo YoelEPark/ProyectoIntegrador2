@@ -39,28 +39,22 @@
         <nav class="main-navbar">
             <ul class="left-navbar">
                 <li><a href="/">Todos los productos</a></li>
-                <!-- solo logueado <li><a href="">Cargar productos</a></li> -->
+                <li><a href="/product/add">agregar productos</a></li>
             </ul>
 
             <ul class="right-navbar">
                 <% console.log('En la vista') %>
                 <% console.log(locals.name) %>
             
-                <% if(locals.user){ %>
-                  <h2>Hola: <%= locals.user.name %> </h2>
-                <%}%>
+              
+                  <h2>Hola: <%= user.username %> </h2>
+              
                 <% if(locals.user){ %>
                     <form action="/login/logout" method="POST">
                       <button type="submit">Logout</button>
                     </form>
                   <%}%>
-                <li>
-                    <a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-                </li>
+
             </ul>
         </nav>
     </div>

@@ -26,63 +26,23 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
+			<% for( let index = 0; index < 4; index++ ) { %>
+			
+			
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product">
+					<a href="/product/id/<%= product[index].id %>">
 						<figure class="product-box_image">
-							<img src="images/products/programacion1.jpg" alt="La Tia Cosima">
+							<img src="images/products/<%= product[index].img %> " alt="La Tia Cosima">
 						</figure>
 						<article class="product-box_data">
-							<h2>La tia Cosima</h2>
-							<p>¿Puede el amor regalar una segunda oportunidad? Cósima es una mujer en la plenitud de la vida</p>
-							<p>Comentarios: 12</p>
+							<h2><%= product[index].productName %> </h2>
+							<p><%= product[index].productDescription %></p>
 						</article>
 					</a>
 				</section>
 			</div>
-
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion2.jpg" alt="Los Siete Maridos De Evelyn Hugo">
-						</figure>
-						<article class="product-box_data">
-							<h2>Los Siete Maridos</h2>
-							<p>Evelyn Hugo, el ícono de Hollywood que se ha recluido en su edad madura, decide al fin contar</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion3.jpg" alt="Harry Potter Y La Piedra Filosofal">
-						</figure>
-						<article class="product-box_data">
-							<h2>Harry Potter y la piedra filosofal</h2>
-							<p>Firenze, un centauro le explica a Harry que la sangre de unicornio le puede dar más vida, pero si</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion4.jpg" alt="Mi Camino">
-						</figure>
-						<article class="product-box_data">
-							<h2>MI CAMINO</h2>
-							<p>La gente nos demanda más humildad, nos demanda un proyecto en serio, nos demanda que</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% } %>
 		</div>
 	</div>
 	<!-- /Novedades -->
@@ -93,90 +53,23 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion5.jpg" alt="El Duelo">
-						</figure>
-						<article class="product-box_data">
-							<h2>El Duelo</h2>
-							<p>El Duelo es un territorio oscuro, misterioso, casi inaccesible. Una conmoción </p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion6.jpg" alt="Soltar Para Ser Feliz">
-						</figure>
-						<article class="product-box_data">
-							<h2>Soltar para ser feliz</h2>
-							<p>Soltar es una palabra que está de moda. Con frecuencia escuchamos frases como: “Hay que soltar el enojo</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion7.jpg" alt="Asesino De Brujas">
-						</figure>
-						<article class="product-box_data">
-							<h2>Asesino de Brujas</h2>
-							<p>Unidos como uno para amarse, para honrarse o para arder. Dos años atrás, Louise le Blanc huyó</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion8.jpg" alt="En El Limbo">
-						</figure>
-						<article class="product-box_data">
-							<h2>En el Limbo</h2>
-							<p>Con Ágilmente Estanislao Bachrach puso de moda la neurociencia. Con En el limbo -luego de años de investigación- </p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion9.jpg" alt="">
-						</figure>
-						<article class="product-box_data">
-							<h2>Magnetizado</h2>
-							<p>En un libro oscuro e inquietante, Carlos Busqued se adentra en la mente de un peculiar homicida. Cuatro asesinatos idénticos tuvieron en jaque a la policía de Buenos Aires en 1982</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src="images/products/programacion10.jpg" alt="">
-						</figure>
-						<article class="product-box_data">
-							<h2>Las Primas</h2>
-							<p>Historia de iniciación ambientada en unos equívocos años 40 que despliega el mundo tortuoso de una familia disfuncional de clase media baja de la ciudad de La Plata: una casa sin hombres y llena de mujeres, todas minusválidas, con alguna deformidad física, mental o imaginaria.</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% for( let index = 4; index < 8; index++ ) { %>
+			
+			
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/product/id/<%= product[index].id %> ">
+							<figure class="product-box_image">
+								<img src="images/products/<%= product[index].img %> " alt="La Tia Cosima">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= product[index].productName %> </h2>
+								<p><%= product[index].productDescription %></p>
+							</article>
+						</a>
+					</section>
+				</div>
+				<% } %>
 		</div>
 	</div>
 	<!-- /Más comentados -->
