@@ -6,8 +6,11 @@ const op = db.Sequelize.Op;
 let loginController = {
     
     index: function(req, res){
-        //Mostramos el form de login
-        return res.render('login');
+        if(req.session.user != undefined ){
+            return res.redirect('/')
+        } else {  
+            return res.render('login', { title: 'Ingresá' })
+        }
     },
 
     login: function(req, res){
@@ -16,18 +19,30 @@ let loginController = {
             where: [{email: req.body.email}]
         })
         .then( user => {
-            req.session.user = user;
-            console.log('en login controller');
-            console.log(req.session.user);
+           
+            let errors = {};
 
-            //Si tildó recordame => creamos la cookie.
-            if(req.body.rememberme != undefined){
-                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
-            }
-
-            return res.redirect('/');
-            
+            // ¿Está el mail en la base de datos?
+            if (user == null){
+                errors.message = 'El email no existe'
+                res.locals.errors = errors
+                return res.render('login', {title: 'Login'});
+            } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
+                errors.message= 'La contraseña es incorrecta'
+                res.locals.errors =errors
+                return res.render('login', {title: 'Login'})
+            } else {
+                req.session.user = user;
+                
+                if(req.body.rememberme != undefined){
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5})
+                }
+           
+                // Si tildó recordame => creamos la cookie.
+                return res.redirect('/');
+            } 
         })
+
         .catch( e => {console.log(e)})
 
     },
