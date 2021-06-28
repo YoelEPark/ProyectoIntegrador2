@@ -1,10 +1,9 @@
+const db = require("../database/models") //Requerimos la conexión a la base de datos y todos los modelos.
+let users = require("../data/usersData") 
 let products = require("../data/librosData")
-
-const db = require("../database/models")
-
 const op = db.sequelize.Op
 
-let users = require("../data/usersData")
+
 
 const userController = {
     user: (req, res) => {
@@ -55,7 +54,7 @@ const userController = {
             password:'',
         }
 
-        // Tenemos que pensar cómo completar password y avatar
+        
         if (req.body.password == '') {
             user.paswword = req.session.user.password;
         } else {
@@ -74,7 +73,7 @@ const userController = {
             })
 
             .then(function (id) {
-                // Actualizar los datos de session y redirecciona a la home
+            
                 user.id = req.session.user.id;
                 req.session.user = user;
                 return res.redirect('/')
