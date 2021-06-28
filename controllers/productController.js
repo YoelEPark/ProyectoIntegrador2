@@ -223,20 +223,23 @@ const productController = {
 
       db.Product.findAll({
          
-            include:[{
-              association: 'user'
-          }],
+            
           where: {
             [op.or]: [{
                     productName: {
                         [op.like]: '%' + infoABuscar + '%'
                     }
                 }]
+                
         },
+        include:[{
+            association: 'user'
+        }],
 
     })
     .then(data => {
-        console.log(data);
+        // 
+        // return res.send(data)
         if (data == null || data == [] || data.length == 0) {
             console.log('No hay resultados');
             return res.render('search-results', {

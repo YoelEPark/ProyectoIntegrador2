@@ -32,7 +32,8 @@ router.get('/editproduct/:id', productController.editProduct);
 router.post('/editproduct/:id', upload.single('img'), productController.updateProduct);
 
 // router.get('/results', productController.search);
-router.get('/search/:busqueda/:condicion/', productController.search);
+router.get('/search/:busqueda', productController.search);
+
 
 
 module.exports = router;

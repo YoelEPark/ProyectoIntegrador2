@@ -44,17 +44,17 @@ module.exports = function (sequelize, dataTypes){
         Product.hasMany(models.Comment,{
             as:'comments', // como voy a llamar a la relacion dentro del controlador
             foreignKey: 'productId',
-
-        }),
+}),
     
     
-        Product.associate = function(models){
+        // Product.associate = function(models){
             Product.belongsTo(models.User,{
-                as:'user', // como voy a llamar a la relacion dentro del controlador
-                foreignKey: 'userId',
+                as:"user", // como voy a llamar a la relacion dentro del controlador
+                foreignKey: "userId",
             })
-        }
     }
+
+    
         
     return Product;
 

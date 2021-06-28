@@ -31,7 +31,7 @@ module.exports = function (sequelize, dataTypes){
     }
     
     let config = {
-        table: 'users',
+        // table: 'users',
         timestamps: false, // si la tabla no tiene los campos created_at y updated_at.
         underscored: false,// si los nombres de columnas tienen guion bajo en lugar de camelCase.
 
@@ -39,17 +39,17 @@ module.exports = function (sequelize, dataTypes){
 
     const User = sequelize.define(alias, cols , config);
 
-    User.associate = function(models){
-        User.hasMany(models.Product,{
-            as:'products',
-            foreignKey: 'userId'
-        })
+    // User.associate = function(models){
+    //     User.hasMany(models.Product,{
+    //         as:'products',
+    //         foreignKey: 'userId'
+    //     })
 
-        User.hasMany(models.Comment,{
-            as:"comments",
-            foreignKey:"userId"
-        })
-    }
+    //     User.hasMany(models.Comment,{
+    //         as:"comments",
+    //         foreignKey:"userId"
+    //     })
+    // }
 
     return User;
 }
