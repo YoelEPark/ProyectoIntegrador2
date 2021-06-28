@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const db = require('../database/models');
+const db = require('../database/models'); //  //Requerimos la conexión a la base de datos y todos los modelos.
 const op = db.Sequelize.Op;
 const users = db.User;
 

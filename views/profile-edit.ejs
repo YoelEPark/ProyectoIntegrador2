@@ -2,7 +2,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/header') %> 
+	<% if( user.log ){ %>
+		<%- include('./partials/headerLogueado') %>
+		<%} else { %>
+		<%- include('./partials/header') %>
+		<% } %>
 
 	<!-- Novedades -->
 	<div class="container">
@@ -14,8 +18,7 @@
 				<input type="file" name="userImg" placeholder="">
 				<label for="Contraseña:">Contraseña:</label>
 				<input type="password" name="password" placeholder="">
-				<button type="submit" class="btn btn-dark btn-lg"
-					onclick="alert('¡Tu perfil ha sido editado con éxito!')">Editar mi perfil</button>
+				<button type="submit" class="btn btn-dark btn-lg">Editar mi perfil</button>
 			</form>
 		</div>
 	</div>
